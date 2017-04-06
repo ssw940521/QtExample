@@ -1,1 +1,12 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/background">
+        <file alias="back">Desert.png</file>
+        <file alias="background1">C:/Users/wlw/Desktop/1997/1997-12/zzpic2064.jpg</file>
+    </qresource>
+    <qresource prefix="/Icon">
+        <file alias="push">2-0btn_05.png</file>
+        <file alias="hover">2-0btn_21.png</file>
+        <file alias="normal">2-0btn_28.png</file>
+        <file>user.png</file>
+    </qresource>
+</RCC>

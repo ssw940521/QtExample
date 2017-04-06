@@ -1,14 +1,12 @@
 ﻿#ifndef DIALOG_H
 #define DIALOG_H
-
-
 #include <QDialog>
 #include <QLineEdit>
 #include <QGridLayout>
 #include <QPushButton>
-#include<QMessageBox>
+#include <QMessageBox>
 #include <QFile>
-#include<info.h>
+#include <QDir>
 class Dialog : public QDialog
 {
     Q_OBJECT
@@ -16,6 +14,7 @@ class Dialog : public QDialog
 public:
     Dialog(QWidget *parent = 0);
     ~Dialog();
+    void unpress(QString path);
 private:
     QPushButton *fileBtn;
     QPushButton *uncompressBtn;
@@ -24,8 +23,9 @@ private:
 
 private slots:
     void showFile();
-    void on_pushButton_clicked();
     void juge();
+
+
 };
 
 #endif // DIALOG_H

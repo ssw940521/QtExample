@@ -1,0 +1,42 @@
+﻿#include "examui.h"
+
+examui::examui(QWidget *parent):QDialog(parent)
+{
+    //setWindowFlags(Qt::FramelessWindowHint);//去掉标题栏
+    setWindowState(Qt::WindowFullScreen);//窗口全屏
+    mainLayout=new QGridLayout(this);//背景布局
+    signLayout=new QGridLayout();
+    this->setAutoFillBackground(true);
+
+    QPalette palette;
+    QPixmap pixmap(":/background/back");
+
+    palette.setBrush(QPalette::Window, QBrush(pixmap.scaled(this->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation)));//设置图片拉伸
+    this->setPalette(palette);
+
+    signin=new QWidget;
+    signin->setWindowFlags(Qt::FramelessWindowHint);
+    signLayout=new QGridLayout(signin);//登陆布局
+    num=new QLabel;
+    num->setText("Input your ID");
+    numEdit=new QLineEdit;
+    next=new QPushButton;
+    next->setText("NEXT");
+    signin->setAutoFillBackground(true);
+    palette.setColor(QPalette::Background,QColor(192,253,123));
+    signin->setPalette(palette);
+    signin->setFixedSize(200,200);
+    //signLayout->addWidget(num,0,0);
+    signLayout->addWidget(numEdit,1,0);
+    signLayout->addWidget(next,2,0);
+    mainLayout->addWidget(signin,0,0);
+    //手动设置位置
+    num->setGeometry(50,10,100,20);
+    num->setParent(signin);
+
+
+
+
+
+
+}

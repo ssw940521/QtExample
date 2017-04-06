@@ -1,4 +1,4 @@
-﻿#include "dialog.h"
+﻿#include "unpressdialog.h"
 #include<QGridLayout>
 #include<QFileDialog>
 #include<QPushButton>
@@ -14,7 +14,6 @@ Dialog::Dialog(QWidget *parent)
     fileBtn=new QPushButton;
     fileBtn->setText("choose file");
     fileLineEdit=new QLineEdit;
-
     uncompressBtn=new QPushButton;
     uncompressBtn->setText("uncompress");
 
@@ -24,7 +23,6 @@ Dialog::Dialog(QWidget *parent)
     mainLayout->addWidget(fileLineEdit,0,1);
     mainLayout->addWidget(uncompressBtn,1,0);
     connect(fileBtn,SIGNAL(clicked()),this,SLOT(showFile()));
-
     connect(uncompressBtn,SIGNAL(clicked()),this,SLOT(juge()));
 
 }
@@ -41,20 +39,20 @@ void Dialog::showFile()
     fileLineEdit->setText(s);
 }
 
-void Dialog::on_pushButton_clicked(){
-
+void Dialog::unpress(QString path){
+        QDir dir;
+        QString outpath="-o"+dir.currentPath()+"\\paper\\examOffice";
         QStringList args;
-        QString FilePath=fileLineEdit->text();
         QString command ="7z.exe";
         args.append("x");
-        args.append(FilePath);
-        args.append("-oE:\\tar");
+        args.append(path);
+        args.append(outpath);
         args.append("-y");
         //使用winrar.exe
         // args.append("e");
         // args.append(file);
         //args.append("E:\\");
-        qDebug()<<FilePath ;
+        //qDebug()<<FilePath ;
         QProcess *pro=new QProcess;
         pro->start(command,args);
     }
@@ -67,7 +65,7 @@ void Dialog::juge()
         return;
     }
     else
-        on_pushButton_clicked();
+        return;
 
 }
 

@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = FileSystem
 TEMPLATE = app
-
+CONFIG += resources_big
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -24,18 +24,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        dialog.cpp \
     uidesign.cpp \
-    examui.cpp
-HEADERS  += dialog.h \
+    unpressdialog.cpp \
+    examuiSign.cpp \
+    question.cpp \
+    topbar.cpp \
+    random.cpp \
+    readtxt.cpp \
+    scoreprocess.cpp
+HEADERS  += \
     uidesign.h \
-    examui.h
+    unpressdialog.h \
+    examuiSign.h \
+    question.h \
+    topbar.h \
+    random.h \
+    readtxt.h \
+    scoreprocess.h
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../zlib128-dll/lib/ -lzdll
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../zlib128-dll/lib/ -lzdlld
 
-INCLUDEPATH += $$PWD/../zlib128-dll/include
-DEPENDPATH += $$PWD/../zlib128-dll/include
 
 RESOURCES += \
-    background.qrc
+    images.qrc
+
+FORMS +=
